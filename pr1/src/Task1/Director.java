@@ -1,22 +1,40 @@
 package Task1;
 
-public class Director extends Worker{
-    private String memberList;
+import java.util.List;
 
-    public Director(String name, int age, float salary, String memberList) {
+public class Director extends Worker {
+
+    private List<Manager> managerList;
+
+    public Director(String name, int age, float salary, List<Manager> managerList) {
         super(name, age, salary);
-        this.memberList = memberList;
+        this.managerList = managerList;
     }
-
-    String getTeamMembers()
+    @Override
+    public void showInfo()
     {
-        return "The " + name + "`s team contains: " + memberList;
+        System.out.println("===");
+        System.out.println("Director: " + name + "has a big team");
+        for (Manager m:managerList)
+        {
+            System.out.println("\n");
+            m.showInfo();
+        }
+        System.out.println("===");
     }
-    public String getMemberList() {
-        return memberList;
+    public void addEmployee(Manager manager)
+    {
+        managerList.add(manager);
+    }
+    public void removeEmployee(Manager manager)
+    {
+        managerList.remove(manager);
+    }
+    public List<Manager> getManagerList() {
+        return managerList;
     }
 
-    public void setMemberList(String memberList) {
-        this.memberList = memberList;
+    public void setManagerList(List<Manager> managerList) {
+        this.managerList = managerList;
     }
 }

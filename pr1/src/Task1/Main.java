@@ -1,14 +1,25 @@
 package Task1;
 
+import java.util.List;
+
 public class Main {
     public static void main(String[] args)
     {
-        Employee employee = new Employee("Bob", 22, 5000, "make a nuclear reactor");
-        Manager manager = new Manager("Eve", 20, 6500, "9:00 - go to work\n23:00 - go to bed");
-        Director director = new Director("Robert", 35, 7500, "Tom, Eve");
+        List<Employee> employeeList = List.of(
+                new Employee("Tom", 21,2500, "Build a nuclear reactor"),
+                new Employee("Oleg", 24, 2750, "Create new OS")
+        );
+        List<Employee> employeeList1 = List.of(
+                new Employee("Krain", 34, 2900, "Save humanity"),
+                new Employee("Strelok", 35, 2600, "Kill Strelok")
+        );
 
-        System.out.println(employee.doWork());
-        System.out.println(manager.getPlanOfDay());
-        System.out.println(director.getTeamMembers());
+        Manager manager = new Manager("Eve", 24, 3000, employeeList);
+        Manager manager1 = new Manager("Lara", 29, 3500, employeeList1);
+
+        List<Manager> managerList = List.of(manager, manager1);
+        Director director = new Director("Robert", 38, 4500, managerList);
+        
+        director.showInfo();
     }
 }

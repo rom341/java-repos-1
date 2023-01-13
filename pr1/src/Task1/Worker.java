@@ -1,6 +1,6 @@
 package Task1;
 
-public class Worker {
+public abstract class Worker {
     protected String name;
     protected int age;
     protected float salary;
@@ -10,7 +10,7 @@ public class Worker {
         this.age = age;
         this.salary = salary;
     }
-
+    abstract void showInfo();
     public String getName() {
         return name;
     }

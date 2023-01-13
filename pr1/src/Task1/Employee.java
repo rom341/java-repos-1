@@ -8,16 +8,16 @@ public class Employee extends Worker{
         this.listOfWork = listOfWork;
     }
 
-    public String doWork()
-    {
-        return name + " get: " + salary + "$ for completing your list of work: '" + listOfWork + "'";
-    }
-
     public String getListOfWork() {
         return listOfWork;
     }
 
     public void setListOfWork(String listOfWork) {
         this.listOfWork = listOfWork;
+    }
+
+    @Override
+    void showInfo() {
+        System.out.println("Employee: " + name + " get " + salary + " for completing: " + listOfWork);
     }
 }

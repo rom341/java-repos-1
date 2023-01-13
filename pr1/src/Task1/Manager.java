@@ -1,22 +1,35 @@
 package Task1;
 
+import java.util.List;
+
 public class Manager extends Worker{
-private String timeManagmentPlan;
+private List<Employee> employeeList;
 
-    public Manager(String name, int age, float salary, String timeManagmentPlan) {
+    public Manager(String name, int age, float salary, List<Employee> employeeList) {
         super(name, age, salary);
-        this.timeManagmentPlan = timeManagmentPlan;
+        this.employeeList = employeeList;
     }
-
-    public String getPlanOfDay()
+    @Override
+    public void showInfo()
     {
-        return name + "`s day plan:\n{\n" + timeManagmentPlan+"\n}";
+        System.out.println("Manager: " + name + " has a small team:");
+        for (Employee e : employeeList) {
+            e.showInfo();
+        }
     }
-    public String getTimeManagmentPlan() {
-        return timeManagmentPlan;
+    public void addEmployee(Employee employee)
+    {
+        employeeList.add(employee);
+    }
+    public void removeEmployee(Employee employee)
+    {
+        employeeList.remove(employee);
+    }
+    public List<Employee> getEmployeeList() {
+        return employeeList;
     }
 
-    public void setTimeManagmentPlan(String timeManagmentPlan) {
-        this.timeManagmentPlan = timeManagmentPlan;
+    public void setEmployeeList(List<Employee> employeeList) {
+        this.employeeList = employeeList;
     }
 }
